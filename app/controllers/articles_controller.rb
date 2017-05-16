@@ -1,3 +1,5 @@
+require 'kramdown'
+
 class ArticlesController < ApplicationController
 
   def index
@@ -6,6 +8,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @markdown = Kramdown::Document.new(@article.content).to_html
   end
 
   def new

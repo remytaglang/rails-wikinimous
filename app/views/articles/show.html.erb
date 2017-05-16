@@ -1,6 +1,11 @@
 <h2><%= @article.title %></h2>
-<p><%= @article.content %></p>
+<p><%= raw @markdown %></p>
+
 
 <%= link_to "Delete", article_path(@article),
       method: :delete,
       data: { confirm: "Are you sure?" } %>
+
+<br>
+
+<%= link_to "Edit", edit_article_path(@article)%>
