@@ -1,5 +1,9 @@
+
+
 <h2><%= @article.title %></h2>
+<h2><%= @article.content %></h2>
 <p><%= raw @markdown %></p>
+<p><%= @article.version %> </p>
 
 
 <%= link_to "Delete", article_path(@article),

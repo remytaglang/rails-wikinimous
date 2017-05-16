@@ -2,6 +2,8 @@ require 'kramdown'
 
 class ArticlesController < ApplicationController
 
+  before_filter :authorize
+
   def index
     @articles = Article.all
   end
@@ -27,7 +29,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.upadate(article_params)
+    @article.update(article_params)
     redirect_to articles_path(@articles)
   end
 
@@ -39,7 +41,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :version)
   end
 
 end
